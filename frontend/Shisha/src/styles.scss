@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'colors' as colors;
+@import '~@angular/material/theming';
+@import '~animate.css/animate.min';
+@include mat-core();
+
+$shisha-primary: mat-palette($mat-grey, 50, 100, 200, 300);
+$shisha-accent: mat-palette($mat-gray);
+
+$shisha-theme: mat-light-theme($shisha-primary, $shisha-accent);
+@include angular-material-theme($shisha-theme);
+
+$shisha-theme: mat-dark-theme($shisha-primary, $shisha-accent);
+@include angular-material-theme($shisha-theme);
+
+
+html, body {
+    height: 100%;
+    width: 100vw;
+    background-color: colors.$background-color-body;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 1em;
+  }
+  
+::-webkit-scrollbar-track {
+    background: colors.$background-color-body;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(128, 128, 128);
+    border-radius: 10px;
+    border: 4px solid colors.$background-color-body;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(105, 104, 104);
+}

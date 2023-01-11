@@ -1,0 +1,12 @@
+<div class="main">
+  <div class="container">
+    <mat-card *ngFor="let flavor of flavors" class="flavor-card"
+    appHighlight (click)="goToFlavor(flavor.id)">
+      <mat-card-header>
+        <mat-card-title>{{flavor.name}}</mat-card-title>
+        <mat-card-subtitle>{{flavor.price | price}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src={{flavor.imageLink}} alt="Flavor photo">
+    </mat-card>
+  </div>
+</div>

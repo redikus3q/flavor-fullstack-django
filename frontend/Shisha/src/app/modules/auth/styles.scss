@@ -1,0 +1,134 @@
+@use "../../../colors" as colors;
+
+h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+input {
+  color: white;
+}
+
+.container,
+.form-section,
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.form-section,
+form {
+  flex-wrap: wrap;
+  width: 20vw;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: auto;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #525252;
+}
+
+.form-section {
+  background-color: colors.$background-color-card;
+  margin: 20px;
+  margin-top: 50px;
+  box-shadow: colors.$shadow-card;
+  padding: 20px 20px 10px 20px;
+  font-family: Arial;
+  font-weight: 800;
+}
+
+h2 {
+  color: rgb(195, 195, 195);
+  font-size: 18px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(195, 195, 195);
+  cursor: pointer;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 10px colors.$background-color-card inset;
+  -webkit-box-shadow: 0 0 0 10px colors.$background-color-card inset;
+  -webkit-text-fill-color: white;
+}
+
+mat-error {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+
+$translate-distance: 3.5px;
+@keyframes shakeX {
+  0%,
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  20%,
+  60% {
+    -webkit-transform: translate3d(-$translate-distance, 0, 0);
+    transform: translate3d(-$translate-distance, 0, 0);
+  }
+
+  40%,
+  80% {
+    -webkit-transform: translate3d($translate-distance, 0, 0);
+    transform: translate3d($translate-distance, 0, 0);
+  }
+}
+
+@-webkit-keyframes shakeX {
+  0%,
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  20%,
+  60% {
+    -webkit-transform: translate3d(-$translate-distance, 0, 0);
+    transform: translate3d(-$translate-distance, 0, 0);
+  }
+
+  40%,
+  80% {
+    -webkit-transform: translate3d($translate-distance, 0, 0);
+    transform: translate3d($translate-distance, 0, 0);
+  }
+}
+
+.form-section {
+  --animate-duration: 0.4s;
+}
+
+@media only screen and (max-width: 1400px) {
+  .form-section,
+  form {
+    width: 280px;
+  }
+}

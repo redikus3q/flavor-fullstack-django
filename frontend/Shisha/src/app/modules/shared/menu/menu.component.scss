@@ -1,0 +1,165 @@
+@use '../../../../colors' as colors;
+@use '../../../../elements' as elements;
+
+.navbar {
+    width: 100vw;
+    background-color: colors.$background-color-card;
+    box-shadow: inset 0px -8px 11px -8px #000000;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+ng-template {
+    all: initial;
+}
+
+.center-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.left-nav, .right-nav {
+    width: 20vw;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.center-img {
+    height: 8vh;
+}
+
+.auth-btn {
+    margin-left: 0px;
+    margin-right: 40px;
+    padding: 10px 16px;
+    font-size: 12px;
+    line-height: 5px;
+}
+
+.logged-in-h2 {
+    color: rgb(195, 195, 195);
+    font-size: 18px;
+    margin: 0px 20px 4px 0px;
+    font-weight: 500;
+    width: 10vw;
+}
+
+.logged-in-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    width: 10vw;
+    margin-right: 20px;
+}
+
+.logged-in-name:hover {
+    color: rgb(195, 195, 195);
+    cursor: pointer;
+}
+
+.log-out {
+    white-space: nowrap;
+}
+
+.logged-in-div {
+    width: max-content;
+}
+
+.shopping-cart-icon {
+    color: white;
+    padding: 4px;
+    margin-right: 1.5vw;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 40px;
+}
+
+.shopping-cart-icon:hover {
+    color: rgb(195, 195, 195);
+    border-color: rgb(195, 195, 195);;
+}
+
+mat-expansion-panel {
+    width: 100px;
+}
+
+
+@media only screen and (max-width: 1550px){
+    .logged-in-h2 {
+        display: none;
+    }
+    .logged-in-name {
+        margin-right: 15px;
+    }
+}
+
+@media only screen and (max-width: 1500px){
+    .btn{
+        font-size: 10px;
+        padding: 10px 16px;
+        line-height: 15px;
+    }
+    .auth-btn {
+        padding: 8px 12px;
+        font-size: 10px;
+        line-height: 5px;
+        white-space: nowrap;
+    }
+    .logged-in {
+        font-size: 14px;
+        margin-top: 6px;
+        font-weight: 500;
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .btn{
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    .right-nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .right-nav .btn {
+        margin: 6px 0px 6px 0px;
+    }
+    .logged-in-name {
+        margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .btn{
+        font-size: 8px;
+        padding: 8px 8px;
+        line-height: 8px;
+    }
+    .auth-btn {
+        font-size: 6px;
+        padding: 6px 6px;
+        line-height: 5px;
+        white-space: nowrap;
+    }
+    .logged-in {
+        font-size: 10px;
+        margin-top: 4px;
+        font-weight: 500;
+        margin-right: 20px;
+    }
+    .center-img {
+        height: 7vh;
+    }
+    .logged-in-name {
+        font-size: 10px;
+        margin-right: 0px;
+    }
+}

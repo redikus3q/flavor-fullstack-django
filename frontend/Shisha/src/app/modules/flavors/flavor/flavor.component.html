@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="product-container">
+    <div class="info-container">
+      <h1 class="name">{{ flavor?.name }}</h1>
+      <h2 class="price">{{ flavor?.price | price }}</h2>
+      <form class="add-to-cart" [formGroup]="quantityForm">
+        <mat-form-field class="quantity-input">
+          <mat-label>Quantity</mat-label>
+          <input matInput placeholder=1 maxlength="2" formControlName="value"/>
+        </mat-form-field>
+        <div class="btn quantity-submit" (click) = "addToCart()">
+          <mat-icon>add_shopping_cart</mat-icon>
+          <h4>add to cart</h4>
+        </div>
+      </form>
+      <img
+        class="image"
+        src="{{ flavor?.imageLink }}"
+        alt="Photo of a Shiba Inu"
+      />
+      <p class="description">
+        {{ flavor?.description }}
+      </p>
+    </div>
+    <app-comments></app-comments>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@use '../../../../colors' as colors;
+
+.flavor-card {
+    max-width: 400px;
+    background-color: colors.$background-color-card;
+    margin: 20px;
+    margin-top: 50px;
+    box-shadow: colors.$shadow-card;
+    transition: all .3s ease-in-out;
+    font-family: Arial;
+    font-weight: 800;
+}
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+}
+
+.mat-card-subtitle {
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 700px){
+    .flavor-card {
+        width: 50vw;
+    }
+}

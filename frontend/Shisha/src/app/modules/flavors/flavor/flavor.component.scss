@@ -1,0 +1,122 @@
+@use '../../../../colors' as colors;
+@use '../../../../elements' as elements;
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+}
+
+.product-container {
+    width: 50vw;
+    margin-top: 40px;
+    margin: 20px;
+    padding: 14px 10px 14px 10px;
+    background-color: colors.$background-color-card;
+    box-shadow: colors.$shadow-card;
+    font-family: Arial;
+}
+
+.image {
+    width: 20vw;
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    padding-right: 10px;
+}
+
+.name, .price, .description, .add-to-cart {
+    color:white;
+}
+
+.name {
+    padding-top: 10px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: 55px;
+}
+
+.price {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.description {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    font-size: 15px;
+    padding-top: 2.5px;
+    margin-top: 0px;
+    border-top: 1px rgb(93, 92, 92) solid;
+}
+
+.add-to-cart {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    height: 50px;
+}
+
+h4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.quantity-input {
+    width: 3vw;
+    margin-right: 5px;
+}
+
+.quantity-submit > h4 {
+    font-size: 12px;
+}
+
+.quantity-submit > mat-icon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.quantity-submit {
+    display: flex;
+    margin-left: 5px;
+    padding: 3px 6px;
+    line-height: 10px;
+}
+
+
+@media only screen and (max-width: 1150px){
+    .name {
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+    .price {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .quantity-submit > h4 {
+        font-size: 10px;
+    }
+    
+    .quantity-submit > mat-icon {
+        font-size: 16px;
+    }
+    .quantity-submit {
+        padding: 2px 4px;
+        line-height: 6px;
+    }
+}

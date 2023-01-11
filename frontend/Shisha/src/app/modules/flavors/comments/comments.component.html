@@ -1,0 +1,49 @@
+<div class="comments-container">
+    <h1>
+        Comments
+    </h1>
+    <div class="add-comment-container" *ngIf="token; else elseBlock">
+        <form [formGroup]="commentForm" class="comment-form">
+            <mat-form-field appearance="outline">
+                <textarea name="text" (focus)="focused = true" #text
+                matInput placeholder="Add a comment..." formControlName="text"></textarea>
+            </mat-form-field>
+            <div class="button-div" *ngIf="focused">
+                <button mat-raised-button class = "demo-button"
+                [disabled]="text.value === ''" (click)="postComment(); text.value = ''">
+                    Post
+                </button>
+                <button mat-raised-button class = "demo-button"
+                (click) = "focused = false; text.value = '' ">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+    <ng-template #elseBlock>
+        <h3>
+            Please <a (click)="goToLogin()">log in</a> to add a comment.
+        </h3>
+    </ng-template>
+    <h2 *ngIf="comments === undefined || comments.length == 0" class="no-comment-text">
+        No comments yet. Be the first one to comment!
+    </h2>
+    <div class="show-comments-container">
+        <div class="comment" *ngFor="let comment of comments">
+            <div class="comment-header">
+                <h3 class="comment-user">
+                    {{comment.user.firstName}} {{comment.user.lastName}}
+                </h3>
+                <div class = "comment-misc">
+                    <mat-icon class = "delete-icon"
+                    *ngIf="this.isAdmin || this.userId == comment.user.id"
+                    (click)="deleteComment(comment.id)">delete</mat-icon>
+                    <h4 class="comment-date">
+                        {{comment.date | date}}
+                    </h4>
+                </div>
+            </div>
+            {{comment.text}}
+        </div>
+    </div>
+</div>

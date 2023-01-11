@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="animate__animated form-section" (keypress)="onKeypressEvent($event)">
+            <h1 class = "title">
+                Log in
+            </h1>
+            <form [formGroup]="loginForm" class="login-form">
+                <mat-error *ngIf="fail">Invalid email or password!</mat-error>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="username"/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password"/>
+                </mat-form-field>
+            </form>
+
+            <button mat-raised-button (click)="login()" class = "demo-button"
+            *ngIf="!loading; else elseblock">
+                Login
+            </button>
+            <ng-template #elseblock><mat-spinner
+                diameter="36" color="accent"></mat-spinner></ng-template>
+
+            <h2>
+                New here? <a (click)="goToRegister()">Register now!</a>
+            </h2>
+    </div>
+</div>

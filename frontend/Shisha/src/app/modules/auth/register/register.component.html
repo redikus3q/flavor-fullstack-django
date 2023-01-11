@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="form-section">
+        <h1 class = "title">
+            Register
+        </h1>
+        <div class="error-div">
+            
+        </div>
+        <form [formGroup]="registerForm" class="login-form" autocomplete="off">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" #passwordInput/>
+            </mat-form-field>
+        </form>
+
+        <mat-error *ngIf="emailExists">There already exists an
+        user registered with that email!</mat-error>
+
+        <mat-error *ngIf="registerForm.controls['password'].invalid &&
+        (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+            <li class="error" *ngFor="let error of getPasswordErrors()">
+                {{error}}
+            </li>
+        </mat-error>
+
+        <mat-error *ngIf="registerForm.controls['email'].invalid &&
+        (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+            <li class="error">
+                That is not a valid email.
+            </li>
+        </mat-error>
+
+        <mat-error *ngIf="checkName()">
+            <li class="error">
+                All fields are mandatory.
+            </li>
+        </mat-error>
+
+
+
+        <button mat-raised-button (click)="register()" class = "demo-button"
+        *ngIf="!loading; else elseblock" [disabled]="checkValidity()">
+            Register
+        </button>
+        <ng-template #elseblock><mat-spinner
+            diameter="36" color="accent"></mat-spinner></ng-template>     
+    </div>
+</div>

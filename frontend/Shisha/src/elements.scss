@@ -1,0 +1,28 @@
+.btn {
+	cursor: pointer;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
+    text-decoration: none;
+    border-radius: 0px;
+    letter-spacing: 3px;
+    $time: .35s;
+    -webkit-transition: all $time ease-in-out;
+       -moz-transition: all $time ease-in-out;
+        -ms-transition: all $time ease-in-out;
+         -o-transition: all $time ease-in-out;
+            transition: all $time ease-in-out;
+    padding: 14px 21px;
+    font-size: 13px;
+    line-height: 25px;
+    text-transform: uppercase;
+    border: solid 2px #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #1f1f1f;
+}

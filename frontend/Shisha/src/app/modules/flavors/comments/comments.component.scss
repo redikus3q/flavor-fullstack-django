@@ -1,0 +1,126 @@
+* {
+    color: white;
+}
+
+.comments-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.add-comment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.comment-form {
+    text-align: center;
+    width: 100%;
+}
+
+.show-comments-container {
+    margin-top: 0px;
+    margin-left: 6.5vw;
+    display: flex;
+    justify-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border-left: solid 1px rgb(93, 92, 92);
+    width: 99%;
+
+}
+
+.no-comment-text {
+    font-size: 16;
+    font-weight: 400;
+}
+
+.comment {
+    width: 84%;
+    text-align: left;
+    border-bottom: solid 1px rgb(93, 92, 92);
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+    padding: 0px 7px 12px 7px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    color:rgb(210, 210, 210);
+    margin-top: 7px;
+}
+
+.comment-header{
+    display: flex;
+    text-align: left;
+    padding-bottom: 0px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.comment-user {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.comment-date {
+    font-size: 14px;
+    font-weight: 400;
+    color:rgb(210, 210, 210);
+    margin-bottom: 0px;
+}
+
+.button-div {
+    margin-top: -8px;
+}
+
+.mat-form-field {
+    width: 80%;
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+}
+
+button {
+    margin-right: 5px;
+}
+
+h3, h4 {
+    margin-top: -16px;
+}
+
+a {
+    color: rgb(158, 158, 158);
+}
+
+a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.delete-icon {
+    font-size: 19px;
+    margin-top: -15px;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    color: rgb(158, 158, 158);
+}
+
+.delete-icon:hover {
+    font-size: 24px;
+    transform: translate(-2px, -2px);
+    color: white;
+}
+
+.comment-misc {
+    display: flex;
+}

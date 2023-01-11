@@ -1,0 +1,32 @@
+<div class="navbar">
+  <div class="left-nav"></div>
+  <div class="center-nav">
+    <button class="btn" (click)="goToFlavors()">Flavors</button>
+    <img class="center-img" src="assets/shisha.png" />
+    <button class="btn" (click)="goToAboutus()">About us</button>
+  </div>
+  <div class="right-nav" *ngIf="!checkToken(); else elseblock">
+    <button class="btn auth-btn" (click)="goToLogin()">Log In</button>
+    <button class="btn auth-btn" (click)="goToRegister()">Register</button>
+  </div>
+  <ng-template #elseblock
+    ><div class="right-nav">
+      <mat-icon class="shopping-cart-icon" (click)="goToCart()"
+        >shopping_cart</mat-icon
+      >
+      <div class="logged-in-div">
+        <h2 class="logged-in-h2" *ngIf="checkToken()">You're logged in as</h2>
+        <a class="logged-in-name" (click)="goToProfile()">
+          {{ user }}
+        </a>
+      </div>
+      <button
+        class="btn auth-btn log-out"
+        (click)="logOut()"
+        *ngIf="checkToken()"
+      >
+        Log out
+      </button>
+    </div></ng-template
+  >
+</div>

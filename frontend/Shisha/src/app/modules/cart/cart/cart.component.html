@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="container" *ngIf="shopping_cart.length != 0; else elseblock">
+    <mat-card
+      *ngFor="let flavor of shopping_cart; index as indexOfElement"
+      class="flavor-card"
+    >
+      <div class="left-div">
+        <img
+          mat-card-image
+          src="{{ flavor.flavor.imageLink }}"
+          alt="Flavor photo"
+          class="cart-flavor-img"
+        />
+      </div>
+      <div class="flavor-details">
+        {{ flavor.flavor.name }} -
+        {{ flavor.flavor.price | price }}
+      </div>
+      <div class="right-div">
+        <div class="flavor-quantity-btn btn" (click)="modifyElement(indexOfElement, false)">&minus;</div>
+        <h4 class="flavor-quantity">
+          {{ flavor.quantity }}
+        </h4>
+        <div class="flavor-quantity-btn btn" (click)="modifyElement(indexOfElement, true)">&plus;</div>
+        <div class="remove-cart-btn btn" (click)="removeElement(indexOfElement)">
+          <mat-icon>remove_shopping_cart</mat-icon>
+        </div>
+      </div>
+    </mat-card>
+    <div class="buy-btn btn">buy now</div>
+  </div>
+  <ng-template #elseblock>
+    <div class = "container">
+      <h2 class = "cart-empty-text">Your cart is empty!</h2>
+      <div class="cart-empty-btn btn" (click) = "goToFlavors()">back to shopping</div>
+    </div>
+  </ng-template>
+</div>

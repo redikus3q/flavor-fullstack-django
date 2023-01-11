@@ -1,0 +1,94 @@
+@use '../../../../colors' as colors;
+@use '../../../../elements' as elements;
+
+div {
+    color: white;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: colors.$background-color-card;
+    width: 80vw;
+    color:white;
+    margin: 20px;
+    margin-top: 50px;
+    box-shadow: colors.$shadow-card;
+    padding: 20px 30px 30px 20px;
+    font-family: Arial;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flavor-card {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+    box-shadow: 0px 0px 13px 3px rgb(0 0 0 / 50%);
+}
+
+.flavor-details, .flavor-quantity {
+    font-size: 30px;
+    margin: 0px !important;
+}
+
+.cart-flavor-img {
+    width: 5vw;
+    margin: 0px !important;
+}
+
+.left-div, .right-div {
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+.left-div {
+    justify-content: flex-start;
+}
+
+.right-div {
+    justify-content: flex-end;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #1f1f1f;
+}
+
+.buy-btn {
+    margin-top: 15px;
+}
+
+.flavor-quantity-btn, .remove-cart-btn {
+    margin: 8px;
+    padding: 5px 6px;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 8px;
+}
+
+.remove-cart-btn {
+    padding: 2px 3px;
+}
+
+.remove-cart-btn > * {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-empty-btn {
+    padding: 4px 6px;
+    font-size: 12px;
+}
