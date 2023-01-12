@@ -20,7 +20,7 @@ npm install -g @angular/cli
 ## Installation
 [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or [download](https://www.itprotoday.com/development-techniques-and-management/how-do-i-download-files-github) the application.
 
-Run the following command using the command prompt in the main directory of the front-end part, in our case /Frontend/Shisha.
+Run the following command using the command prompt in the main directory of the front-end part, in our case /frontend.
 
 ```bash
 npm install
