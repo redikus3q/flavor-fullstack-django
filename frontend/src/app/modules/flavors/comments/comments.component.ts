@@ -38,11 +38,9 @@ export class CommentsComponent implements OnInit, OnDestroy {
     if(auxtoken != undefined && auxtoken != ""){
       this.token = auxtoken;
       this.authService.getUser().subscribe(result => {
-        this.isAdmin = result['admin'];
+        this.isAdmin = result.admin;
+        this.userId = result.username;
       });
-      this.authService.getUser().subscribe(result => {
-        this.userId = result.id;
-      })
     }
     this.subscription = this.route.params.subscribe(params => {
       this.flavorId = +params['id'];
@@ -54,7 +52,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  get email(): AbstractControl | null {
+  get text(): AbstractControl | null {
     return this.commentForm.get('text');
   }
 

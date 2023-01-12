@@ -2,14 +2,12 @@ from shishaApp.serializers import FlavorSerializer, FlavorListSerializer, Commen
 from .models import Flavor, Comment
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, get_list_or_404
+from django.shortcuts import get_object_or_404
 import json
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
 from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth.models import User
-from rest_framework import status
-from rest_framework.response import Response
 
 
 @csrf_exempt
@@ -57,22 +55,31 @@ def handle_comments(request):
         flavorId = data['flavorId']
         text = data['text']
         flavor = get_object_or_404(Flavor, pk=flavorId)
-
+        
         userToken = request.headers['Authorization']
         userTokenObj = AccessToken(userToken)
         userId = userTokenObj['user_id']
         user = get_object_or_404(User, pk=userId)
 
-        comment = Comment.objects.create(flavor=flavor, text=text, user = user)
+        comment = Comment.objects.create(flavor=flavor, text=text, user=user)
         commentSerializer = CommentSerializer(comment)
         jsonComment = commentSerializer.data
         return JsonResponse(jsonComment)
+
 
 @csrf_exempt
 def handle_flavor_comments(request, id):
     if request.method == 'GET':
         flavor = get_object_or_404(Flavor, pk=id)
-        comments = get_list_or_404(Comment, flavor=flavor)
+        comments = Comment.objects.filter(flavor=flavor)
         commentSerializer = CommentListSerializer(comments)
         jsonComments = commentSerializer.data
         return JsonResponse(jsonComments, safe=False)
+
+
+@csrf_exempt
+def handle_comment(request, id):
+    if request.method == "DELETE":
+        comment = get_object_or_404(Comment, pk=id)
+        comment.delete()
+        return JsonResponse({'success': True})

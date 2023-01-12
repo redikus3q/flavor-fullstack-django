@@ -4,10 +4,10 @@
                 Log in
             </h1>
             <form [formGroup]="loginForm" class="login-form">
-                <mat-error *ngIf="fail">Invalid email or password!</mat-error>
+                <mat-error *ngIf="fail">Invalid username or password!</mat-error>
                 <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="pat@example.com" formControlName="username"/>
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="username" formControlName="username"/>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">

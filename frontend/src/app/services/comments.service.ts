@@ -7,7 +7,7 @@ import { map, Observable } from 'rxjs';
 })
 export class CommentsService {
 
-  public url = 'https://localhost:44361/api/Comment';
+  public url = 'http://127.0.0.1:8000/api/comments/';
 
   constructor(
     private http: HttpClient
@@ -18,10 +18,10 @@ export class CommentsService {
   }
 
   public getComments(id: number): Observable<Comment[]>{
-    return this.http.get<any>(`${this.url}/${id}`).pipe(map(response => response.comments));
+    return this.http.get<any>(`${this.url}flavor/${id}`);
   }
 
   public deleteComment(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.url}/${id}`);
+    return this.http.delete<any>(`${this.url}${id}`);
   }
 }

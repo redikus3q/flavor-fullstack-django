@@ -32,11 +32,11 @@
         <div class="comment" *ngFor="let comment of comments">
             <div class="comment-header">
                 <h3 class="comment-user">
-                    {{comment.user.firstName}} {{comment.user.lastName}}
+                    {{comment.username}}
                 </h3>
                 <div class = "comment-misc">
                     <mat-icon class = "delete-icon"
-                    *ngIf="this.isAdmin || this.userId == comment.user.id"
+                    *ngIf="this.isAdmin || this.userId == comment.username"
                     (click)="deleteComment(comment.id)">delete</mat-icon>
                     <h4 class="comment-date">
                         {{comment.date | date}}

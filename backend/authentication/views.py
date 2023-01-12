@@ -1,20 +1,22 @@
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework_simplejwt.views import TokenObtainPairView
+from django.http import JsonResponse, HttpResponse, HttpResponseNotFound
 from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth.models import User
+from rest_framework_simplejwt.views import TokenObtainPairView
 import json
-
-
-class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class = TokenObtainPairSerializer
 
 
 @csrf_exempt
 def getUser(request):
-    userToken = request.headers['Authorization']
-    userTokenObj = AccessToken(userToken)
+    try:
+        userToken = request.headers['Authorization']
+    except:
+        return JsonResponse("", safe=False)
+
+    try:
+        userTokenObj = AccessToken(userToken)
+    except:
+        return JsonResponse("", safe=False)
     userId = userTokenObj['user_id']
     user = User.objects.get(id=userId)
     return JsonResponse({
@@ -29,6 +31,6 @@ def getUser(request):
 def register(request):
     body = json.loads(request.body)
     User.objects.create_user(username=body['username'],
-                                    email=body['email'],
-                                    password=body['password'])
-    return MyTokenObtainPairView.as_view()(request)
+                             email=body['email'],
+                             password=body['password'])
+    return TokenObtainPairView.as_view()(request)

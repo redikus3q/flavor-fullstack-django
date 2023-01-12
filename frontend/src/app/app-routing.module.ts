@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { NotAuthGuard } from './not-auth.guard';
 
 const routes: Routes = [
   {
@@ -13,16 +14,17 @@ const routes: Routes = [
   },
   {
     path: 'auth',
+    canActivate: [NotAuthGuard],
     loadChildren: () => import('src/app/modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'user',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('src/app/modules/user/user.module').then(m => m.UserModule)
   },
   {
     path: 'cart',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('src/app/modules/cart/cart.module').then(m => m.CartModule)
   }
 ];

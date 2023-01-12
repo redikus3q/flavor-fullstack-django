@@ -2,7 +2,7 @@
 @use '../../../../elements' as elements;
 
 .navbar {
-    width: 100vw;
+    width: 100%;
     background-color: colors.$background-color-card;
     box-shadow: inset 0px -8px 11px -8px #000000;
     display: flex;
@@ -98,6 +98,12 @@ mat-expansion-panel {
     .logged-in-name {
         margin-right: 15px;
     }
+    .shopping-cart-icon {
+        padding: 3px;
+        margin-right: 1.2vw;
+        border: 2px solid white;
+        border-radius: 30px;
+    }
 }
 
 @media only screen and (max-width: 1500px){
@@ -121,6 +127,15 @@ mat-expansion-panel {
 }
 
 @media only screen and (max-width: 1100px){
+    .shopping-cart-icon {
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid white;
+        border-radius: 30px;
+        font-size: 15px;
+        text-align: center;
+        height: 1em;
+    }
     .btn{
         margin-left: 12px;
         margin-right: 12px;

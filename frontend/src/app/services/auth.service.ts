@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public getUser(): Observable<any>{
-    return this.http.get<any>(this.url + "/getUser");
+    return this.http.get<any>(this.url + '/getUser/', {headers:{skip:"getUser"}});
   }
 
 }

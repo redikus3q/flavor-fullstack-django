@@ -13,9 +13,9 @@ import { AuthService } from './services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class NotAuthGuard implements CanActivate, CanActivateChild {
   public user: any;
-  public isAuthorized: boolean = false;
+  public isLoggedOut: boolean = false;
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -30,12 +30,12 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return new Observable<boolean>((obs) => {
       this.authService.getUser().subscribe((result) => {
         this.user = result;
-        this.isAuthorized = this.user !== "";
-        if(!this.isAuthorized){
-          console.error("You are not authorized!");
+        this.isLoggedOut = this.user == "";
+        if(!this.isLoggedOut){
+          console.error("You are already logged in!");
           this.router.navigate(["/flavors"])
         }
-        obs.next(this.isAuthorized);
+        obs.next(this.isLoggedOut);
       });
     });
   }

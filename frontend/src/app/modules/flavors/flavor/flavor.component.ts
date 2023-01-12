@@ -8,6 +8,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Flavor } from 'src/app/interfaces/flavor';
 import { FlavorInCart } from 'src/app/interfaces/flavorInCart';
+import { AuthService } from 'src/app/services/auth.service';
 import { FlavorsService } from 'src/app/services/flavors.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class FlavorComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private flavorsService: FlavorsService,
     private snackBar: MatSnackBar,
+    private authService: AuthService,
     ) {
   }
 
@@ -76,14 +78,27 @@ export class FlavorComponent implements OnInit, OnDestroy {
   }
 
   public addToCart(): void {
+    var userToken = localStorage.getItem('Token')
+    if(userToken == "" || userToken == null){
+      this.openCarUserFailSnackBar();
+      return;
+    }
     const quantity = this.getQuantity();
     var cart = this.actualizeCart(quantity);
     localStorage.setItem("Cart", JSON.stringify(cart));
-    this.openSnackBar(quantity, this.flavor.name);
+    this.openCartSuccessSnackBar(quantity, this.flavor.name);
   }
 
-  private openSnackBar(quantity: number, flavorName: string): void {
+  private openCartSuccessSnackBar(quantity: number, flavorName: string): void {
     this.snackBar.open('Added ' + quantity + ' ' + flavorName + ' to cart!', 'Dismiss', {
+      horizontalPosition: 'start',
+      verticalPosition: 'bottom',
+      duration: 5000,
+    });
+  }
+
+  private openCarUserFailSnackBar(): void {
+    this.snackBar.open('You are not logged in!', 'Dismiss', {
       horizontalPosition: 'start',
       verticalPosition: 'bottom',
       duration: 5000,

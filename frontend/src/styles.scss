@@ -15,9 +15,8 @@ $shisha-theme: mat-dark-theme($shisha-primary, $shisha-accent);
 
 
 html, body {
-    height: 100%;
-    width: 100vw;
     background-color: colors.$background-color-body;
+    box-sizing: border-box;
 }
 body {
     margin: 0;
