@@ -39,7 +39,9 @@ Made using [Django 4.1](https://docs.djangoproject.com/en/4.1/releases/4.1/) wit
 and [Django simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/) for better authentication and authorization.
 
 ## Prerequisites
-Download and install [Django](https://www.djangoproject.com/download/), [Django REST Framework](https://www.django-rest-framework.org/#installation) [and Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html).
+Download and install [Django](https://www.djangoproject.com/download/);
+Download and install [Django REST Framework](https://www.django-rest-framework.org/#installation);
+Download and install [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html).
 
 ## Installation
 [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or [download](https://www.itprotoday.com/development-techniques-and-management/how-do-i-download-files-github) the application.
