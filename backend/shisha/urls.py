@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('shishaApp.urls')),
     path('authentication/', include('authentication.urls')),
+    path('payment/', include('payment.urls')),
 ]

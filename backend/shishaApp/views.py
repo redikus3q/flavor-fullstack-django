@@ -3,11 +3,12 @@ from .models import Flavor, Comment
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-import json
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
 from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth.models import User
+
+import json
 
 
 @csrf_exempt
@@ -55,7 +56,7 @@ def handle_comments(request):
         flavorId = data['flavorId']
         text = data['text']
         flavor = get_object_or_404(Flavor, pk=flavorId)
-        
+
         userToken = request.headers['Authorization']
         userTokenObj = AccessToken(userToken)
         userId = userTokenObj['user_id']

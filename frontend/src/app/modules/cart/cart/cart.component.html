@@ -17,22 +17,37 @@
         {{ flavor.flavor.price | price }}
       </div>
       <div class="right-div">
-        <div class="flavor-quantity-btn btn" (click)="modifyElement(indexOfElement, false)">&minus;</div>
+        <div
+          class="flavor-quantity-btn btn"
+          (click)="modifyElement(indexOfElement, false)"
+        >
+          &minus;
+        </div>
         <h4 class="flavor-quantity">
           {{ flavor.quantity }}
         </h4>
-        <div class="flavor-quantity-btn btn" (click)="modifyElement(indexOfElement, true)">&plus;</div>
-        <div class="remove-cart-btn btn" (click)="removeElement(indexOfElement)">
+        <div
+          class="flavor-quantity-btn btn"
+          (click)="modifyElement(indexOfElement, true)"
+        >
+          &plus;
+        </div>
+        <div
+          class="remove-cart-btn btn"
+          (click)="removeElement(indexOfElement)"
+        >
           <mat-icon>remove_shopping_cart</mat-icon>
         </div>
       </div>
     </mat-card>
-    <div class="buy-btn btn">buy now</div>
+    <div class="buy-btn btn" (click)="checkout()">buy now</div>
   </div>
   <ng-template #elseblock>
-    <div class = "container">
-      <h2 class = "cart-empty-text">Your cart is empty!</h2>
-      <div class="cart-empty-btn btn" (click) = "goToFlavors()">back to shopping</div>
+    <div class="container">
+      <h2 class="cart-empty-text">Your cart is empty!</h2>
+      <div class="cart-empty-btn btn" (click)="goToFlavors()">
+        back to shopping
+      </div>
     </div>
   </ng-template>
 </div>

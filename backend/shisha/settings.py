@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-(mi#m+ljs)n3#i^xztw7!bvam+5p-awhj*xs#8q_rusnzx*ho#
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -42,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'shishaApp',
     'authentication',
+    'payment',
 ]
 
 REST_FRAMEWORK = {
@@ -67,10 +66,12 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
+    "https://checkout.stripe.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:4200",
+    "https://checkout.stripe.com",
 ]
 
 ROOT_URLCONF = 'shisha.urls'
@@ -93,7 +94,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shisha.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -113,19 +113,22 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -138,7 +141,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -148,3 +150,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = "pk_live_51MZGv5ANqe9keOxR3JWmrGqUPs3DG93sO5iKAzDOlIfV9T11htBLmF9pVg8ZLDFhItRklrHlKJi9PoxdRNyHSAvD00ELxQEMqB"
+STRIPE_PRIVATE_KEY = "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"
+STRIPE_WEBHOOK_SECRET = "whsec_8a8970179b8596010bf33769fb9be89d3eb5b322b5f2012b8ebe8f3b4c578e94"
+
+STRIPE_TEST_PUBLIC_KEY = "pk_test_51MZGv5ANqe9keOxRGcixwVueNfjr6tvWINGItDy1KoDLWMhbvsVcQB3LLiC1chw3DIL0ukJYeAnJojAG1jPdPqoC00dCWU8mRg"
+STRIPE_TEST_PRIVATE_KEY = "sk_test_51MZGv5ANqe9keOxRiyCAd4jNVkpygeQhvdLksP3cSfumVSezxjGIIlPgI7zTweF6XangnhTfkiX1WmmJJNJ1sPqP00nRtqM7ES"
